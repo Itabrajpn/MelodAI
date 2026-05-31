@@ -1,0 +1,42 @@
+
+<!doctype html><html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MelodAI PRO MultiEngine FIX</title><link rel="stylesheet" href="/static/style.css">
+</head><body>
+<header><div class="brand"><span>♪</span><div><b>MelodAI PRO</b><small>HeyGen • SadTalker • MuseTalk • Wav2Lip</small></div></div><div id="health">verificando...</div></header>
+<main>
+<section class="hero"><h1>Foto + Áudio =<br><em>Vídeo com Lip Sync</em></h1><p>Escolha o motor correto para gerar o vídeo.</p></section>
+<section class="grid">
+<form id="form" class="card">
+<h2>Novo vídeo</h2>
+<label>Título</label><input name="title" value="teste">
+<label>Motor de geração</label>
+<div class="engines">
+<label class="engine active"><input type="radio" name="engine" value="heygen" checked><b>HeyGen API</b><small>JPG/PNG + áudio, usa créditos API</small></label>
+<label class="engine"><input type="radio" name="engine" value="sadtalker"><b>SadTalker Local</b><small>Foto + áudio</small></label>
+<label class="engine"><input type="radio" name="engine" value="wav2lip"><b>Wav2Lip Local</b><small>Imagem/vídeo + áudio</small></label>
+<label class="engine"><input type="radio" name="engine" value="musetalk"><b>MuseTalk Local</b><small>Vídeo + áudio</small></label>
+</div>
+<div class="uploads">
+<label class="drop"><input name="face" type="file" accept=".jpg,.jpeg,.png,.mp4,.mov,.avi" required><span>👤</span><b>Imagem ou vídeo</b><small id="faceName">JPG/PNG/MP4/MOV/AVI</small></label>
+<label class="drop"><input name="audio" type="file" accept=".mp3,.wav,.aac,.m4a" required><span>🎵</span><b>Áudio</b><small id="audioName">MP3/WAV/AAC/M4A</small></label>
+</div>
+<div class="two">
+<div><label>Resolução HeyGen</label><select name="resolution"><option value="720p">720p</option><option value="1080p">1080p</option><option value="4k">4k</option></select></div>
+<div><label>Formato</label><select name="aspect_ratio"><option value="16:9">16:9</option><option value="9:16">9:16</option><option value="1:1">1:1</option><option value="auto">Auto</option></select></div>
+</div>
+<div class="two">
+<div><label>Enquadramento</label><select name="fit"><option value="contain">Contain</option><option value="cover">Cover</option></select></div>
+<div><label>Cor do fundo</label><input name="background_color" value="#000000"></div>
+</div>
+<div class="two">
+<div><label>SadTalker size</label><select name="sadtalker_size"><option value="256">256</option><option value="512">512</option></select></div>
+<div></div>
+</div>
+<div class="checks"><label><input type="checkbox" name="enhancer"> Melhorar rosto GFPGAN/SadTalker</label><label><input type="checkbox" name="remove_background"> Remover fundo HeyGen se suportar</label></div>
+<button id="btn">✨ Gerar Lip Sync</button>
+</form>
+<section class="card"><h2>Status</h2><div class="progress"><div id="bar"></div></div><p id="statusText">Aguardando...</p><div id="preview" class="preview"></div><pre id="log"></pre></section>
+</section>
+<section class="card dash"><h2>Dashboard</h2><button onclick="loadJobs()" class="small">Atualizar</button><div id="jobs"></div></section>
+</main><script src="/static/script.js"></script></body></html>
